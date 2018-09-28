@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.csrf().disable()
+	http.csrf().disable()
 		.cors().disable().
 		httpBasic().and().
 		authorizeRequests().antMatchers(PUBLIC_MATCHERS).permitAll().anyRequest().authenticated();
@@ -51,9 +51,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
 	}
 	
-//	@Bean
-//	public HttpSessionStrategy httpSessionStrategy() {
-//		return new HeaderHttpSessionStrategy();
-//	}
-//	
 }
