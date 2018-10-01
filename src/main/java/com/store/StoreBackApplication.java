@@ -23,13 +23,13 @@ public class StoreBackApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		User user = new User();
-		BCryptPasswordEncoder encoder = SecurityUtility.passwordEncoder();
-		
-		user.setUsername("j");
-		user.setPassword(encoder.encode("j"));
-		
-		this.userRepo.save(user);
+//		User user = new User();
+//		BCryptPasswordEncoder encoder = SecurityUtility.passwordEncoder();
+//		
+//		user.setUsername("j");
+//		user.setPassword(encoder.encode("j"));
+//		
+//		this.userRepo.save(user);
 		
 	}
 }
