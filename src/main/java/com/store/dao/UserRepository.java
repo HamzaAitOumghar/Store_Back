@@ -8,7 +8,7 @@ import com.store.security.User;
 
 public interface UserRepository extends JpaRepository<User, Long>{
 	
-	User findByUsername(String usernamer);
+	User findByUsername(String username);
 	User findByEmail(String email);
 	List<User> findAll();
 

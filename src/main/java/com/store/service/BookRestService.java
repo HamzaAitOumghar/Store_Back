@@ -3,6 +3,7 @@ package com.store.service;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
@@ -123,9 +124,11 @@ public class BookRestService {
 	
 	
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-	public Long deleteBook(@PathVariable("id") Long id) {
+	public Long deleteBook(@PathVariable("id") Long id) throws IOException {
 		
 		this.bookRepo.removeOne(id);
+		String fileName=id+".png";
+		Files.delete(Paths.get("src/main/resources/static/image/book/"+fileName));
 		return id;
 	}
 	

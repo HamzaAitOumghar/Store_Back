@@ -26,8 +26,8 @@ public class StoreBackApplication implements CommandLineRunner {
 //		User user = new User();
 //		BCryptPasswordEncoder encoder = SecurityUtility.passwordEncoder();
 //		
-//		user.setUsername("j");
-//		user.setPassword(encoder.encode("j"));
+//		user.setUsername("hamza");
+//		user.setPassword(encoder.encode("hamza"));
 //		
 //		this.userRepo.save(user);
 		
