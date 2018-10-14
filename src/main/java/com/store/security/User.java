@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,6 +19,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.store.entities.UserPayment;
+import com.store.entities.UserShipping;
 
 @Entity
 public class User implements UserDetails,Serializable{
@@ -44,6 +47,13 @@ public class User implements UserDetails,Serializable{
 	@JsonIgnore
 	private Set<UserRole> userRole=new HashSet<>();
 
+
+	@OneToMany(mappedBy="user" , cascade= CascadeType.ALL)
+	private List<UserPayment> userPayments ;
+	
+	@OneToMany(mappedBy="user" , cascade= CascadeType.ALL)
+	private List<UserShipping> userShippings ;
+	
 	public Long getId() {
 		return id;
 	}
@@ -146,6 +156,22 @@ public class User implements UserDetails,Serializable{
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return enable;
+	}
+
+	public List<UserPayment> getUserPayments() {
+		return userPayments;
+	}
+
+	public void setUserPayments(List<UserPayment> userPayments) {
+		this.userPayments = userPayments;
+	}
+
+	public List<UserShipping> getUserShippings() {
+		return userShippings;
+	}
+
+	public void setUserShippings(List<UserShipping> userShippings) {
+		this.userShippings = userShippings;
 	}
 	
 	
